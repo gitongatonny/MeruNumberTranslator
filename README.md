@@ -1,4 +1,4 @@
-# MeruNumberTranslator
+# Number to Meru (and v.v) Translator
 
 This Python program translates entered numbers to the Meru equivalent and vice versa. It also prints out the Morphological Grammar of the either entered or outputted Meru equivalents.
 
