@@ -24,6 +24,6 @@ To use the Meru Number Translator & Morphological Analyzer, follow these steps:
 
 2. Make sure you have Python installed (version 3.6 or above).
 
-3. Open with Jupyter Notebook or an equivalent software.
+3. Open with **Jupyter Notebook** or an equivalent software.
 
-- or You can use Google **Colab**.
+- or You can use **Google Colab**.
