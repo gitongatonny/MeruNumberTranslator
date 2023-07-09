@@ -12,14 +12,18 @@ This project converts numbers to its equivalent Meru name and vice versa. The an
 
 ## Dataset
 
-The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`. 
+The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`.
 
 The dataset contains numbers 1 to 100 and their corresponding Meru name and morphological grammar.
 
 ## Usage
 
-To use the Meru Number System Morphological Analyzer, follow these steps:
+To use the Meru Number Translator & Morphological Analyzer, follow these steps:
 
 1. Clone the repository to your local machine.
 
 2. Make sure you have Python installed (version 3.6 or above).
+
+3. Open with Jupyter Notebook or an equivalent software.
+
+- or You can use Google **Colab**.
