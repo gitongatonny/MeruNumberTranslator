@@ -1,10 +1,12 @@
-# Meru Number System Morphological Analyzer
+# Meru Number Translator & Morphological Analyzer
 
-This project implements a morphological analyzer for the Meru number system in the native Kenyan language, Meru. The analyzer takes a numerical input and generates the corresponding MeruNumber.
+This project converts numbers to its equivalent Meru name and vice versa. The analyzer takes a numerical input and generates its corresponding Meru name. In addition, it outputs the Meru words' morphological grammar.
+
+**Meru** is a native language spoken in Kenya. The Meru people are natively located in the central region of Kenya around Mt.Kenya.
 
 ## Features
 
-- Analyzes numbers from 1 to 999 and converts them to the MeruNumber representation.
+- Analyzes numbers from 1 to 999 and converts them to the Meru language equivalent.
 
 ## Dataset
 
