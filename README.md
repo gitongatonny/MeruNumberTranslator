@@ -10,7 +10,9 @@ This project converts numbers to its equivalent Meru name and vice versa. The an
 
 ## Dataset
 
-The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`. The file contains the following columns: NumberEquivalent, MeruNumber, and Grammar. The dataset covers numbers 1 to 100 and provides the corresponding MeruNumber and grammar for each number.
+The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`. 
+
+The dataset contains numbers 1 to 100 and their corresponding Meru name and morphological grammar.
 
 ## Usage
 
