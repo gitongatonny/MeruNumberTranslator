@@ -6,7 +6,9 @@ This project converts numbers to its equivalent Meru name and vice versa. The an
 
 ## Features
 
-- Analyzes numbers from 1 to 999 and converts them to the Meru language equivalent.
+- Converts numbers to their Meru language equivalent.
+- Converts Meru names of numbers to their numerical equivalent.
+- Generates and outputs the Morphological Grammar of the Meru name equivalent.
 
 ## Dataset
 
