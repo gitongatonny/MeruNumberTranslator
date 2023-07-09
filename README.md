@@ -1,8 +1,19 @@
-# Meru Number Translator.
+# Meru Number System Morphological Analyzer
 
-This Python program translates entered numbers to the Meru equivalent and vice versa. It also prints out the Morphological Grammar of the either entered or outputted Meru equivalents.
+This project implements a morphological analyzer for the Meru number system in the native Kenyan language, Meru. The analyzer takes a numerical input and generates the corresponding MeruNumber.
 
-## How to Run.
-1. Open it in Jupyter Notebook, Google Colab or any other equivalent.
-1. Run the cells.
-1. Enter input to test the program.
+## Features
+
+- Analyzes numbers from 1 to 999 and converts them to the MeruNumber representation.
+
+## Dataset
+
+The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`. The file contains the following columns: NumberEquivalent, MeruNumber, and Grammar. The dataset covers numbers 1 to 100 and provides the corresponding MeruNumber and grammar for each number.
+
+## Usage
+
+To use the Meru Number System Morphological Analyzer, follow these steps:
+
+1. Clone the repository to your local machine.
+
+2. Make sure you have Python installed (version 3.6 or above).
