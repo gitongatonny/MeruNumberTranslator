@@ -1,15 +1,15 @@
-NumberEquivalent, MeruNumber, Grammar
-0, kinya, ki-nya
-1, imwe, i-mwe
-2, ijiri, i-jiri
-3, ithatu, i-thatu
-4, inya, i-nya
-5, ithano, i-thano
-6, ithathantu, i-tha-thantu
-7, mugwanja, mu-gwanja
-8, inyanya, i-nyanya
-9, kenda, ke-nda
-10, ikumi, i-kumi
+NumberEquivalent,MeruNumber,Grammar
+0,kinya,ki-nya
+1,imwe,i-mwe
+2,ijiri,i-jiri
+3,ithatu,i-thatu
+4,inya,i-nya
+5,ithano,i-thano
+6,ithanthantu,i-tha-thantu
+7,mugwanja,mu-gwanja
+8,inyanya,i-nyanya
+9,kenda,ke-nda
+10,ikumi,i-kumi
 11,ikumi na imwe,i-kumi na i-mwe
 12,ikumi na ijiri,i-kumi na i-jiri
 13,ikumi na ithatu,i-kumi na i-thatu
@@ -18,7 +18,7 @@ NumberEquivalent, MeruNumber, Grammar
 16,ikumi na ithanthantu,i-kumi na i-tha-thantu
 17,ikumi na mugwanja,i-kumi na mu-gwanja
 18,ikumi na inyanya,i-kumi na i-nyanya
-19,ikumi na kenda ,i-kumi na ke-nda
+19,ikumi na kenda,i-kumi na ke-nda
 20,mirongoiri,mi-rongo-iri
 21,mirongoiri na imwe,mi-rongo-iri na i-mwe
 22,mirongo iri na ijiri,mi-rongo iri na i-jiri
@@ -33,42 +33,42 @@ NumberEquivalent, MeruNumber, Grammar
 31,mirongo ithatu na imwe,mi-rongo i-thatu na i-mwe
 32,mirongo ithatu na ijiri,mi-rongo i-thatu na i-jiri
 33,mirongo ithatu na ithatu,mi-rongo i-thatu na i-thatu
-34,mirongo ithatu na inya ,mi-rongo i-thatu na i-nya
+34,mirongo ithatu na inya,mi-rongo i-thatu na i-nya
 35,mirongo ithatu na ithano,mi-rongo i-thatu na i-thano
 36,mirongo ithatu na ithanthantu,mi-rongo i-thatu na i-tha-thantu
 37,mirongo ithatu na mugwanja,mi-rongo i-thatu na mu-gwanja
 38,mirongo ithatu na inyanya,mi-rongo i-thatu na i-nyanya
-39,mirongo ithatu na kenda ,mi-rongo i-thatu na ke-nda
+39,mirongo ithatu na kenda,mi-rongo i-thatu na ke-nda
 40,mirongo ina,mi-rongo-ina
 41,mirongo ina na imwe,mi-rongo-ina na i-mwe
 42,mirongo ina na ijiri,mi-rongo-ina na i-jiri
-43,mirongo ina ithatu,mi-rongo-ina na i-thatu
+43,mirongo ina na ithatu,mi-rongo-ina na i-thatu
 44,mirongo ina na inya,mi-rongo-ina na i-nya
-45,mirongo ina naithano,mi-rongo-ina na i-thano
-46,mirongo ina naithantu,mi-rongo-ina na i-tha-thantu
+45,mirongo ina na ithano,mi-rongo-ina na i-thano
+46,mirongo ina na ithantu,mi-rongo-ina na i-tha-thantu
 47,mirongo ina na mugwanja,mi-rongo-ina na mu-gwanja
 48,mirongo ina na inyanya,mi-rongo-ina na i-nyanya
 49,mirongo ina na kenda,mi-rongo-ina na ke-nda
 50,mirongo itano,mi-rongo-i-tano
 51,mirongo itano na imwe,mi-rongo-i-tano na i-mwe
-52,mirongo itano naijiri,mi-rongo-i-tano na i-jiri
+52,mirongo itano na ijiri,mi-rongo-i-tano na i-jiri
 53,mirongo itano na ithatu,mi-rongo-i-tano na i-thatu
 54,mirongo itano na inya,mi-rongo-i-tano na i-nya
-55,mirongo itano n aithano,mi-rongo-i-tano na i-thano
-56,mirongo itano na ithathantu,mi-rongo-i-tano na i-tha-thantu
-57,mirongo itano na mugwanja ,mi-rongo-i-tano na mu-gwanja
+55,mirongo itano na ithano,mi-rongo-i-tano na i-thano
+56,mirongo itano na ithanthantu,mi-rongo-i-tano na i-tha-thantu
+57,mirongo itano na mugwanja,mi-rongo-i-tano na mu-gwanja
 58,mirongo itano na inyanya,mi-rongo-i-tano na i-nyanya
 59,mirongo itano na kenda,mi-rongo-i-tano na ke-nda
-60,mirongo itantatu,mi-rongo-i-tan-tatu
-61,mirongo itantatu na imwe,mi-rongo-i-tan-tatu na i-mwe
-62,mirongo itatatu na ijiri,mi-rongo-i-tan-tatu na i-jiri
-63,mirongo itatantu na ithatu,mi-rongo-i-tan-tatu na i-thatu
-64,mirongo itantatu na inya,mi-rongo-i-tan-tatu na i-nya
-65,mirongo itatantu na ithano,mi-rongo-i-tan-tantu na i-thano
-66,mirongo itatantatu na ithathantu,mi-rongo-i-tan-tatu na i-tha-thantu
-67,mirongo itantatu na mugwanja,mi-rongo-i-tan-tatu na mu-gwanja
+60,mirongo ithanthatu,mi-rongo-i-tan-tatu
+61,mirongo ithanthatu na imwe,mi-rongo-i-tan-tatu na i-mwe
+62,mirongo ithanthatu na ijiri,mi-rongo-i-tan-tatu na i-jiri
+63,mirongo ithanthatu na ithatu,mi-rongo-i-tan-tatu na i-thatu
+64,mirongo ithanthatu na inya,mi-rongo-i-tan-tatu na i-nya
+65,mirongo ithanthatu na ithano,mi-rongo-i-tan-tantu na i-thano
+66,mirongo itatantatu na ithanthantu,mi-rongo-i-tan-tatu na i-tha-thantu
+67,mirongo ithanthatu na mugwanja,mi-rongo-i-tan-tatu na mu-gwanja
 68,mirongo itantantu na inyanya,mi-rongo-i-tan-tantu na i-nyanya
-69,mirongo itantatu na kenda,mi-rongo-i-tan-tatu na ke-nda
+69,mirongo ithanthatu na kenda,mi-rongo-i-tan-tatu na ke-nda
 70,mirongo mugwanja,mi-rongo-mu-gwanja
 71,mirongo mugwanja na imwe,mi-rongo-mu-gwanja na i-mwe
 72,mirongo mugwanja na ijiri,mi-rongo-mu-gwanja na i-jiri
@@ -77,8 +77,8 @@ NumberEquivalent, MeruNumber, Grammar
 75,mirongo mugwanja na ithano,mi-rongo-mu-gwanja na i-thano
 76,mirongo mugwanja na ithanthantu,mi-rongo-mu-gwanja na i-tha-thantu
 77,mirongo mugwanja na mugwanja,mi-rongo-mu-gwanja na mu-gwanja
-78,mirongo mugwanja na inyanya,mi-rongo mu-gwanja na i-nyanya
-79,mirongo mugwanja na kenda,mi-rongo mu-gwanja na ke-nda
+78,mirongo mugwanja na inyanya,mi-rongo-mu-gwanja na i-nyanya
+79,mirongo mugwanja na kenda,mi-rongo-mu-gwanja na ke-nda
 80,mirongo inana,mi-rongo i-nana
 81,mirongo inana na imwe,mi-rongo i-nana na i-mwe
 82,mirongo inanna na ijiri,mi-rongo i-nanna na i-jiri
