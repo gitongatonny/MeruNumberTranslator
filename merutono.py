@@ -39,6 +39,8 @@ def analyze_meru_number(input_number, dataset):
             part_number, part_grammar = dataset[part]
             number += part_number
             grammar += part_grammar + ' '
+        elif part.isdigit():
+            number += int(part)
     grammar = grammar.strip()
 
     # Handle numbers above 100 using rule-based approach
