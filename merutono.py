@@ -27,7 +27,8 @@ def analyze_meru_number(input_number, dataset):
             hundreds = dataset[parts[0].strip()][0]
             tens = dataset[parts[1].strip()][0]
             corresponding_number = hundreds + tens
-            return corresponding_number, ''
+            tens_grammar = dataset[f"{tens}"][1]
+            return corresponding_number, tens_grammar
 
     # No "na" keyword, analyze MeruNumber
     parts = input_number.split()
@@ -50,7 +51,8 @@ def analyze_meru_number(input_number, dataset):
         if tens == 0:
             return f"{hundreds} mia", ''
         else:
-            return f"{hundreds} mia na {tens}", ''
+            tens_grammar = dataset[f"{tens}"][1]
+            return f"{hundreds} mia na {tens}", tens_grammar
     else:
         return number, grammar
 
