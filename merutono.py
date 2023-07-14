@@ -9,6 +9,8 @@ def load_dataset(filename):
             number = int(row[0])
             meru_number = row[1]
             grammar = row[2]
+            if number <= 10:
+                grammar = None
             dataset[meru_number] = (number, grammar)
     return dataset
 
@@ -39,7 +41,8 @@ def analyze_meru_number(input_number, dataset):
         if part in dataset:
             part_number, part_grammar = dataset[part]
             number += part_number
-            grammar += part_grammar + ' '
+            if part_grammar is not None:
+                grammar += part_grammar + ' '
         elif part.isdigit():
             number += int(part)
     grammar = grammar.strip()
