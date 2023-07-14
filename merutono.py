@@ -2,7 +2,7 @@ import csv
 
 def load_dataset(filename):
     dataset = {}
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8-sig') as file:
         reader = csv.reader(file)
         next(reader)  # Skip header row
         for row in reader:
@@ -16,15 +16,9 @@ def load_dataset(filename):
 dataset = load_dataset('MeruNumbers.csv')
 
 def analyze_meru_number(input_number, dataset):
+    # Check if the input MeruNumber is a number word from 1 to 100
     if input_number in dataset:
-        # Number is in the dataset
         return dataset[input_number]
-
-    # Check if the input MeruNumber is a number word from 1 to 10
-    if input_number in dataset.values():
-        for number, (meru_number, grammar) in dataset.items():
-            if input_number == meru_number:
-                return number, grammar
 
     # Check if the input MeruNumber has "na" keyword
     if 'na' in input_number:
@@ -46,7 +40,17 @@ def analyze_meru_number(input_number, dataset):
             number += part_number
             grammar += part_grammar + ' '
     grammar = grammar.strip()
-    return number, grammar
+
+    # Handle numbers above 100 using rule-based approach
+    if number > 100:
+        hundreds = number // 100
+        tens = number % 100
+        if tens == 0:
+            return f"{hundreds} mia", ''
+        else:
+            return f"{hundreds} mia na {tens}", ''
+    else:
+        return number, grammar
 
 def run_meru_number_analyzer():
     # Get user input
