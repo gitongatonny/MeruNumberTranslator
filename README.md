@@ -14,7 +14,15 @@ This project converts numbers to its equivalent Meru name and vice versa. The an
 
 The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`.
 
-The dataset contains numbers 1 to 100 and their corresponding Meru name and morphological grammar.
+The dataset contains numbers 1 to 100 [and other values] and their corresponding Meru name and morphological grammar.
+
+The other values are:
+
+- 1,000 and 10,000.
+- 1,10 and 100 million.
+- 1,10 and 100 billion.
+
+These extra values will enable translation of a larger scope of numbers to their Meru name equivalent and vice versa.
 
 ## Usage
 
