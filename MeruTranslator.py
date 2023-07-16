@@ -79,6 +79,7 @@ def run_meru_number_analyzer():
             print(f"The NumberEquivalent for {input_meru_number} is: {number} ({grammar}) \n")
 
         elif choice == "3":
+            print("Thank you for using Meru Number Translator!💯")
             break
 
         else:
