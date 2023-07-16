@@ -59,9 +59,11 @@ def run_meru_number_analyzer():
         print("2. Translate a Meru number to a number")
         print("3. Quit")
         choice = input("Enter your choice: ")
+        print("\n")  
 
         if choice == "1":
-            input_number = int(input("Enter a number: \n"))
+            input_number = int(input("Enter a number: "))
+            print("\n")
 
             # Analyze the Meru number
             meru_number, grammar, morphemes = analyze_meru_number(input_number, dataset)
@@ -69,7 +71,8 @@ def run_meru_number_analyzer():
             print(f"Morphemes: {', '.join(morphemes)} \n")
 
         elif choice == "2":
-            input_meru_number = input("Enter a MeruNumber: \n")
+            input_meru_number = input("Enter a MeruNumber: ")
+            print("\n")
 
             # Analyze the MeruNumber
             number, grammar = analyze_meru_number(input_meru_number, dataset)
