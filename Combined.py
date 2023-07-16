@@ -50,8 +50,7 @@ def analyze_meru_number(input_number, dataset):
             number += part_number
             grammar += part_grammar + ' '
     grammar = grammar.strip()
-    ones = input_number % 10
-    return number, grammar, dataset[hundreds][2] + dataset[100][2] + dataset[tens * 10][2] + dataset[ones][2]
+    return number, grammar
 
 # Convert a number to its MeruNumber representation
 def convert_to_meru_number(input_number, dataset):
