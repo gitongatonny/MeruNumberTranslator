@@ -90,25 +90,33 @@ def convert_to_meru_number(input_number, dataset):
 
 # Run the program
 while True:
+    print("Welcome to the Meru Number Converter! /n")
     print("Choose an option:")
     print("1. Convert a number to MeruNumber")
     print("2. Convert a MeruNumber to number")
     print("3. Quit")
 
     choice = input("Enter your choice: ")
+    print("\n")  
+
 
     if choice == '1':
         input_number = int(input("Enter a number: "))
         meru_number = convert_to_meru_number(input_number, dataset)
-        print(f"The MeruNumber for {input_number} is: {meru_number}")
+        print(f"The MeruNumber for {input_number} is: {meru_number} ({grammar})")
+        print("\n")
 
     elif choice == '2':
         input_meru_number = input("Enter a MeruNumber: ")
         number, grammar = analyze_meru_number(input_meru_number, dataset)
         print(f"The NumberEquivalent for {input_meru_number} is: {number} ({grammar})")
+        print("\n")
 
     elif choice == '3':
+        print("Thank you for using Meru Number Translator!💯")
+        print("Exiting...")
         break
 
     else:
         print("Invalid choice. Please try again.")
+        print("\n")
