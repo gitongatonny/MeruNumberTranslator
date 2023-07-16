@@ -61,24 +61,24 @@ def run_meru_number_analyzer():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            input_number = int(input("Enter a number: /n"))
+            input_number = int(input("Enter a number: \n"))
 
             # Analyze the Meru number
             meru_number, grammar, morphemes = analyze_meru_number(input_number, dataset)
-            print(f"The Meru number for {input_number} is: {meru_number} ({grammar}) /n")
-            print(f"Morphemes: {', '.join(morphemes)} /n")
+            print(f"The Meru number for {input_number} is: {meru_number} ({grammar}) \n")
+            print(f"Morphemes: {', '.join(morphemes)} \n")
 
         elif choice == "2":
-            input_meru_number = input("Enter a MeruNumber: /n")
+            input_meru_number = input("Enter a MeruNumber: \n")
 
             # Analyze the MeruNumber
             number, grammar = analyze_meru_number(input_meru_number, dataset)
-            print(f"The NumberEquivalent for {input_meru_number} is: {number} ({grammar}) /n")
+            print(f"The NumberEquivalent for {input_meru_number} is: {number} ({grammar}) \n")
 
         elif choice == "3":
             break
 
         else:
-            print("Invalid choice. Please try again. /n")
+            print("Invalid choice. Please try again. \n")
 
 run_meru_number_analyzer()
