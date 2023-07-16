@@ -92,8 +92,8 @@ def convert_to_meru_number(input_number, dataset):
 while True:
     print("Welcome to the Meru Number Converter! /n")
     print("Choose an option:")
-    print("1. Convert a number to MeruNumber")
-    print("2. Convert a MeruNumber to number")
+    print("1. Convert a Digit number to its equivalent MeruNumber Translation")
+    print("2. Convert a MeruNumber to its equivalent number in Digits form")
     print("3. Quit")
 
     choice = input("Enter your choice: ")
