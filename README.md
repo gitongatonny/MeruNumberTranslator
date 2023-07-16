@@ -1,4 +1,4 @@
-# Meru Number Translator & Morphological Analyzer
+# Meru Number Translator & Morphological Analyzer Using Recursion
 
 This project converts numbers to its equivalent Meru name and vice versa. The analyzer takes a numerical input and generates its corresponding Meru name. In addition, it outputs the Meru words' morphological grammar.
 
