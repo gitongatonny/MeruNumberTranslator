@@ -122,13 +122,13 @@ def convert_to_meru_number(input_number, dataset):
     return convert_to_meru_number_recursive(input_number, dataset)
 
 print()
-print("Welcome to the Meru Number Converter!")
+print("Welcome to the Meru Number Converter!🎉")
 print()
 
 def run_program():
     print("Choose an option:")
-    print("1. Convert a number to MeruNumber")
-    print("2. Convert a MeruNumber to number")
+    print("1. Convert a digit to its MeruNumber")
+    print("2. Convert a MeruNumber to its digit")
     print("3. Quit")
 
     choice = input("Enter your choice: ")
@@ -140,7 +140,7 @@ def run_program():
         meru_number_phrase = ' '.join([str(item) for item in meru_number if not isinstance(item, tuple) and item != 'na'])
         grammar_phrase = ' '.join([str(item) for item in grammar.split(' ') if item != 'na'])
         morphemes_list = [m for m in morphemes if m != 'na']
-        print(f"The Meru number for {input_number} is: {meru_number_phrase}")
+        print(f"The MeruNumber for {input_number} is: {meru_number_phrase}")
         print(f"Grammar: {grammar_phrase}")
         print(f"Morphemes: {', '.join(morphemes_list)}")
         print()
@@ -149,7 +149,7 @@ def run_program():
     elif choice == '2':
         input_meru_number = input("Enter a MeruNumber: ")
         number, grammar, morphemes = analyze_meru_number(input_meru_number, dataset)
-        print(f"The NumberEquivalent for {input_meru_number} is: {number}")
+        print(f"The Digit Equivalent for {input_meru_number} is: {number}")
         print(f"Grammar: {grammar}")
         print(f"Morphemes: {', '.join(morphemes)}")
         print()
