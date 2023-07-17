@@ -121,8 +121,11 @@ def convert_to_meru_number_recursive(input_number, dataset, cache=None):
 def convert_to_meru_number(input_number, dataset):
     return convert_to_meru_number_recursive(input_number, dataset)
 
+print()
+print("Welcome to the Meru Number Converter!")
+print()
+
 def run_program():
-    print("Welcome to the Meru Number Converter!\n")
     print("Choose an option:")
     print("1. Convert a number to MeruNumber")
     print("2. Convert a MeruNumber to number")
