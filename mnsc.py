@@ -71,43 +71,24 @@ def convert_to_meru_number_recursive(input_number, dataset, cache=None):
     if input_number in dataset:
         # Number is in the dataset
         result = dataset[input_number]
-    elif input_number >= 200:
+    elif input_number >= 100:
         hundreds = input_number // 100
         remainder = input_number % 100
         if remainder == 0:
-            meru_number = f"{convert_to_meru_number_recursive(hundreds, dataset, cache)} {dataset[100][0]}"
+            meru_number = f"{dataset[hundreds][0]} {dataset[100][0]}"
             grammar = f"{dataset[hundreds][1]} {dataset[100][1]}"
             morphemes = dataset[hundreds][2] + dataset[100][2]
         else:
-            tens = remainder // 10
-            ones = input_number % 10
-            if tens == 0:
-                meru_number = f"{convert_to_meru_number_recursive(hundreds, dataset, cache)} {dataset[100][0]} {convert_to_meru_number_recursive(ones, dataset, cache)}"
-                grammar = f"{dataset[hundreds][1]} {dataset[100][1]} {dataset[ones][1]}"
-                morphemes = dataset[hundreds][2] + dataset[100][2] + dataset[ones][2]
-            else:
-                meru_number = f"{convert_to_meru_number_recursive(hundreds, dataset, cache)} {dataset[100][0]} {convert_to_meru_number_recursive(tens * 10, dataset, cache)} na {convert_to_meru_number_recursive(ones, dataset, cache)}"
-                grammar = f"{dataset[hundreds][1]} {dataset[100][1]} {dataset[tens * 10][1]} na {dataset[ones][1]}"
-                morphemes = dataset[hundreds][2] + dataset[100][2] + dataset[tens * 10][2] + dataset[ones][2]
+            meru_number = f"{dataset[hundreds][0]} {dataset[100][0]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[0]}"
+            grammar = f"{dataset[hundreds][1]} {dataset[100][1]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[1]}"
+            morphemes = dataset[hundreds][2] + dataset[100][2] + convert_to_meru_number_recursive(remainder, dataset, cache)[2]
         result = meru_number, grammar, morphemes
-    elif input_number < 100:
+    else:
         tens = input_number // 10
         ones = input_number % 10
-        meru_number = f"{convert_to_meru_number_recursive(tens * 10, dataset, cache)} {convert_to_meru_number_recursive(ones, dataset, cache)}"
-        grammar = f"{dataset[tens * 10][1]} {dataset[ones][1]}"
-        morphemes = dataset[tens * 10][2] + dataset[ones][2]
-        result = meru_number, grammar, morphemes
-    elif 100 <= input_number < 200:
-        tens = (input_number % 100) // 10
-        ones = input_number % 10
-        if tens == 0:
-            meru_number = f"{convert_to_meru_number_recursive(100, dataset, cache)} {convert_to_meru_number_recursive(ones, dataset, cache)}"
-            grammar = f"{dataset[100][1]} {dataset[ones][1]}"
-            morphemes = dataset[100][2] + dataset[ones][2]
-        else:
-            meru_number = f"{convert_to_meru_number_recursive(100, dataset, cache)} {convert_to_meru_number_recursive(tens * 10, dataset, cache)} na {convert_to_meru_number_recursive(ones, dataset, cache)}"
-            grammar = f"{dataset[100][1]} {dataset[tens * 10][1]} na {dataset[ones][1]}"
-            morphemes = dataset[100][2] + dataset[tens * 10][2] + dataset[ones][2]
+        meru_number = f"{dataset[tens*10][0]} {dataset[ones][0]}"
+        grammar = f"{dataset[tens*10][1]} {dataset[ones][1]}"
+        morphemes = dataset[tens*10][2] + dataset[ones][2]
         result = meru_number, grammar, morphemes
 
     cache[input_number] = result
