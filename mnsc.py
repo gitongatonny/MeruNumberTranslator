@@ -18,8 +18,8 @@ def load_dataset(filename):
 
 dataset = load_dataset('MeruNumbers.csv')
 
-# Analyze a MeruNumber
-def analyze_meru_number_recursive(input_number, dataset, cache=None):
+# Convert a MeruNumber to a digit
+def convert_to_digit_recursive(input_number, dataset, cache=None):
     if cache is None:
         cache = {}
 
@@ -28,43 +28,38 @@ def analyze_meru_number_recursive(input_number, dataset, cache=None):
 
     if input_number in dataset:
         # Number is in the dataset
-        result = dataset[input_number]
+        result = dataset[input_number][0]
     elif input_number in dataset.values():
         for number, (meru_number, grammar, morphemes) in dataset.items():
             if input_number == meru_number:
-                result = number, grammar, morphemes
+                result = number
                 break
         else:
             result = None
     elif 'na' in input_number:
         parts = input_number.split('na')
         if len(parts) == 2:
-            hundreds = analyze_meru_number_recursive(parts[0].strip(), dataset, cache)[0]
-            tens = analyze_meru_number_recursive(parts[1].strip(), dataset, cache)[0]
+            hundreds = convert_to_digit_recursive(parts[0].strip(), dataset, cache)
+            tens = convert_to_digit_recursive(parts[1].strip(), dataset, cache)
             corresponding_number = hundreds + tens
-            result = corresponding_number, '', dataset[hundreds][2] + dataset[tens][2]
+            result = corresponding_number
         else:
             result = None
     else:
         parts = input_number.split()
         number = 0
-        grammar = ''
-        morphemes = []
         for part in parts:
             part = part.strip()
             if part in dataset:
-                part_number, part_grammar, part_morphemes = analyze_meru_number_recursive(part, dataset, cache)
+                part_number = convert_to_digit_recursive(part, dataset, cache)
                 number += part_number
-                grammar += part_grammar + ' '
-                morphemes.extend(part_morphemes)
-        grammar = grammar.strip()
-        result = number, grammar, [m for m in morphemes if m != 'na']  # Filter out 'na' from morphemes
+        result = number
 
     cache[input_number] = result
     return result
 
-def analyze_meru_number(input_number, dataset):
-    return analyze_meru_number_recursive(input_number, dataset)
+def convert_to_digit(input_number, dataset):
+    return convert_to_digit_recursive(input_number, dataset)
 
 def convert_to_meru_number_recursive(input_number, dataset, cache=None):
     if cache is None:
@@ -148,10 +143,8 @@ def run_program():
 
     elif choice == '2':
         input_meru_number = input("Enter a MeruNumber: ")
-        number, grammar, morphemes = analyze_meru_number(input_meru_number, dataset)
+        number = convert_to_digit(input_meru_number, dataset)
         print(f"The Digit Equivalent for {input_meru_number} is: {number}")
-        print(f"Grammar: {grammar}")
-        print(f"Morphemes: {', '.join(morphemes)}")
         print()
         run_program()
 
@@ -166,4 +159,3 @@ def run_program():
 
 # Run the program
 run_program()
-
