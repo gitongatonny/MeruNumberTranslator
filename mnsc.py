@@ -78,17 +78,21 @@ def convert_to_meru_number_recursive(input_number, dataset, cache=None):
             meru_number = f"{dataset[hundreds][0]} {dataset[100][0]}"
             grammar = f"{dataset[hundreds][1]} {dataset[100][1]}"
             morphemes = dataset[hundreds][2] + dataset[100][2]
+        elif remainder < 10:
+            meru_number = f"{dataset[hundreds][0]} na {dataset[remainder][0]} {dataset[100][0]}"
+            grammar = f"{dataset[hundreds][1]} na {dataset[remainder][1]} {dataset[100][1]}"
+            morphemes = dataset[hundreds][2] + ['na'] + dataset[remainder][2] + dataset[100][2]
         else:
-            meru_number = f"{dataset[hundreds][0]} {dataset[100][0]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[0]}"
-            grammar = f"{dataset[hundreds][1]} {dataset[100][1]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[1]}"
-            morphemes = dataset[hundreds][2] + dataset[100][2] + convert_to_meru_number_recursive(remainder, dataset, cache)[2]
+            meru_number = f"{dataset[100][0]} {convert_to_meru_number_recursive(hundreds, dataset, cache)[0]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[0]}"
+            grammar = f"{dataset[100][1]} {convert_to_meru_number_recursive(hundreds, dataset, cache)[1]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[1]}"
+            morphemes = dataset[100][2] + convert_to_meru_number_recursive(hundreds, dataset, cache)[2] + ['na'] + convert_to_meru_number_recursive(remainder, dataset, cache)[2]
         result = meru_number, grammar, morphemes
     else:
         tens = input_number // 10
         ones = input_number % 10
-        meru_number = f"{dataset[tens*10][0]} {dataset[ones][0]}"
-        grammar = f"{dataset[tens*10][1]} {dataset[ones][1]}"
-        morphemes = dataset[tens*10][2] + dataset[ones][2]
+        meru_number = f"{dataset[ones][0]} {dataset[tens*10][0]}"
+        grammar = f"{dataset[ones][1]} {dataset[tens*10][1]}"
+        morphemes = dataset[ones][2] + dataset[tens*10][2]
         result = meru_number, grammar, morphemes
 
     cache[input_number] = result
