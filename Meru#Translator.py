@@ -13,110 +13,134 @@ def load_dataset(filename):
             grammar = row[2]
             morphemes = re.findall(r'\b\w+\b', meru_number)
             dataset[number] = (meru_number, grammar, morphemes)
-            dataset[meru_number] = (number, grammar)
+            dataset[meru_number] = (number, grammar, morphemes)
     return dataset
 
 dataset = load_dataset('MeruNumbers.csv')
 
-# Analyze a MeruNumber
-def analyze_meru_number(input_number, dataset):
+# Convert a MeruNumber to a digit
+def convert_to_digit_recursive(input_number, dataset, cache=None):
+    if cache is None:
+        cache = {}
+
+    if input_number in cache:
+        return cache[input_number]
+
     if input_number in dataset:
         # Number is in the dataset
-        return dataset[input_number]
-
-    # Check if the input MeruNumber is a number word from 1 to 10
-    if input_number in dataset.values():
-        for number, (meru_number, grammar) in dataset.items():
+        result = dataset[input_number][0]
+    elif input_number in dataset.values():
+        for number, (meru_number, grammar, morphemes) in dataset.items():
             if input_number == meru_number:
-                return number, grammar
-
-    # Check if the input MeruNumber has "na" keyword
-    if 'na' in input_number:
+                result = number
+                break
+        else:
+            result = None
+    elif 'na' in input_number:
         parts = input_number.split('na')
         if len(parts) == 2:
-            hundreds = dataset[parts[0].strip()][0]
-            tens = dataset[parts[1].strip()][0]
+            hundreds = convert_to_digit_recursive(parts[0].strip(), dataset, cache)
+            tens = convert_to_digit_recursive(parts[1].strip(), dataset, cache)
             corresponding_number = hundreds + tens
-            return corresponding_number, ''
+            result = corresponding_number
+        else:
+            result = None
+    else:
+        parts = input_number.split()
+        number = 0
+        for part in parts:
+            part = part.strip()
+            if part in dataset:
+                part_number = convert_to_digit_recursive(part, dataset, cache)
+                number += part_number
+        result = number
 
-    # No "na" keyword, analyze MeruNumber
-    parts = input_number.split()
-    number = 0
-    grammar = ''
-    for part in parts:
-        part = part.strip()
-        if part in dataset:
-            part_number, part_grammar = dataset[part]
-            number += part_number
-            grammar += part_grammar + ' '
-    grammar = grammar.strip()
-    return number, grammar
+    cache[input_number] = result
+    return result
 
-# Convert a number to its MeruNumber representation
-def convert_to_meru_number(input_number, dataset):
+def convert_to_digit(input_number, dataset):
+    return convert_to_digit_recursive(input_number, dataset)
+
+def convert_to_meru_number_recursive(input_number, dataset, cache=None):
+    if cache is None:
+        cache = {}
+
+    if input_number in cache:
+        return cache[input_number]
+
     if input_number in dataset:
         # Number is in the dataset
-        return dataset[input_number][0]
-
-    if input_number >= 200:
+        result = dataset[input_number]
+    elif input_number >= 100:
         hundreds = input_number // 100
         remainder = input_number % 100
         if remainder == 0:
             meru_number = f"{dataset[hundreds][0]} {dataset[100][0]}"
+            grammar = f"{dataset[hundreds][1]} {dataset[100][1]}"
+            morphemes = dataset[hundreds][2] + dataset[100][2]
+        elif remainder < 10:
+            meru_number = f"{dataset[100][0]} {dataset[hundreds][0]} na {dataset[remainder][0]}"
+            grammar = f"{dataset[100][1]} {dataset[hundreds][1]} na {dataset[remainder][1]}"
+            morphemes = dataset[100][2] + dataset[hundreds][2] + ['na'] + dataset[remainder][2]
         else:
-            tens = remainder // 10
-            ones = input_number % 10
-            if tens == 0:
-                meru_number = f"{dataset[hundreds][0]} {dataset[100][0]} {dataset[ones][0]}"
-            else:
-                meru_number = f"{dataset[hundreds][0]} {dataset[100][0]} {dataset[tens * 10][0]} na {dataset[ones][0]}"
-        return meru_number
-
-    if input_number < 100:
-        # Numbers from 1 to 99
+            meru_number = f"{dataset[100][0]} {dataset[hundreds][0]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[0]}"
+            grammar = f"{dataset[100][1]} {dataset[hundreds][1]} na {convert_to_meru_number_recursive(remainder, dataset, cache)[1]}"
+            morphemes = dataset[100][2] + dataset[hundreds][2] + ['na'] + convert_to_meru_number_recursive(remainder, dataset, cache)[2]
+        result = meru_number, grammar, morphemes
+    else:
         tens = input_number // 10
         ones = input_number % 10
-        meru_number = f"{dataset[tens * 10][0]} {dataset[ones][0]}"
-        return meru_number
+        meru_number = f"{dataset[ones][0]} {dataset[tens*10][0]}"
+        grammar = f"{dataset[ones][1]} {dataset[tens*10][1]}"
+        morphemes = dataset[ones][2] + dataset[tens*10][2]
+        result = meru_number, grammar, morphemes
 
-    if 100 <= input_number < 200:
-        tens = (input_number % 100) // 10
-        ones = input_number % 10
-        if tens == 0:
-            meru_number = f"{dataset[100][0]} {dataset[ones][0]}"
-        else:
-            meru_number = f"{dataset[100][0]} {dataset[tens * 10][0]} na {dataset[ones][0]}"
-        return meru_number
+    cache[input_number] = result
+    return result
 
-# Run the program
-while True:
-    print("Welcome to the Meru Number Converter! /n")
+def convert_to_meru_number(input_number, dataset):
+    return convert_to_meru_number_recursive(input_number, dataset)
+
+print()
+print("Welcome to the Meru Number Converter!🎉")
+print()
+
+def run_program():
     print("Choose an option:")
-    print("1. Convert a Digit number to its equivalent MeruNumber Translation")
-    print("2. Convert a MeruNumber to its equivalent number in Digits form")
+    print("1. Convert a digit to its MeruNumber")
+    print("2. Convert a MeruNumber to its digit")
     print("3. Quit")
 
     choice = input("Enter your choice: ")
-    print("\n")  
-
+    print()
 
     if choice == '1':
         input_number = int(input("Enter a number: "))
-        meru_number = convert_to_meru_number(input_number, dataset)
-        print(f"The MeruNumber for {input_number} is: {meru_number} ({grammar})")
-        print("\n")
+        meru_number, grammar, morphemes = convert_to_meru_number(input_number, dataset)
+        meru_number_phrase = ' '.join([str(item) for item in meru_number if not isinstance(item, tuple) and item != 'na'])
+        grammar_phrase = ' '.join([str(item) for item in grammar.split(' ') if item != 'na'])
+        morphemes_list = [m for m in morphemes if m != 'na']
+        print(f"The MeruNumber for {input_number} is: {meru_number_phrase}")
+        print(f"Grammar: {grammar_phrase}")
+        print(f"Morphemes: {', '.join(morphemes_list)}")
+        print()
+        run_program()
 
     elif choice == '2':
         input_meru_number = input("Enter a MeruNumber: ")
-        number, grammar = analyze_meru_number(input_meru_number, dataset)
-        print(f"The NumberEquivalent for {input_meru_number} is: {number} ({grammar})")
-        print("\n")
+        number = convert_to_digit(input_meru_number, dataset)
+        print(f"The Digit Equivalent for {input_meru_number} is: {number}")
+        print()
+        run_program()
 
     elif choice == '3':
         print("Thank you for using Meru Number Translator!💯")
         print("Exiting...")
-        break
 
     else:
         print("Invalid choice. Please try again.")
-        print("\n")
+        print()
+        run_program()
+
+# Run the program
+run_program()
