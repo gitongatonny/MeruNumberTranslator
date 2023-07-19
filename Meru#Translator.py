@@ -106,6 +106,8 @@ print("Welcome to the Meru Number Converter!🎉")
 print()
 
 def run_program():
+    print('-' * 80)
+    print()
     print("Choose an option:")
     print("1. Convert a digit to its MeruNumber")
     print("2. Convert a MeruNumber to its digit")
