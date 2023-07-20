@@ -49,5 +49,5 @@ To use the Meru Number Translator & Morphological Analyzer, follow these steps:
 This project was inspired by the fascinating Meru numbering system and the rich cultural heritage of the Meru people.
 Special thanks to the Meru community for preserving and sharing their unique numerical system.
 
-## Author
+## Authors
 The Meru Number Converter was implemented and completed through collaboration between Tonny and Moses.
