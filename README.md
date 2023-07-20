@@ -10,9 +10,17 @@ This project converts numbers to its equivalent Meru name and vice versa. The an
 - Converts Meru names of numbers to their numerical equivalent.
 - Generates and outputs the Morphological Grammar of the Meru name equivalent.
 
+## How it Works
+The Meru Number Converter is implemented using a recursive approach in Python. 
+It consists of two main functions: "convert_to_meru_number" and "convert_to_digit". 
+The program loads the dataset of MeruNumbers from a CSV file containing mappings between the numbers and their MeruNumber equivalents.
+
+The convert_to_meru_number function takes a digit number as input and recursively converts it to its corresponding MeruNumber representation. 
+Similarly, the convert_to_digit function takes a MeruNumber as input and recursively converts it to its decimal equivalent.
+
 ## Dataset
 
-The dataset used for the conversion is stored in a CSV file named `MeruNumbers.csv`.
+The Meru Number Converter uses a dataset stored in a CSV file (MeruNumbers.csv). This dataset contains the mapping between numbers and their corresponding MeruNumbers, and grammar. The program loads this dataset at runtime to perform the conversions.
 
 The dataset contains numbers 0 to 100 [and other values] and their corresponding Meru name and morphological grammar.
 
@@ -35,3 +43,11 @@ To use the Meru Number Translator & Morphological Analyzer, follow these steps:
 3. Open with **Jupyter Notebook** or an equivalent software.
 
 - or You can use **Google Colab**.
+
+## Acknowledgments
+
+This project was inspired by the fascinating Meru numbering system and the rich cultural heritage of the Meru people.
+Special thanks to the Meru community for preserving and sharing their unique numerical system.
+
+## Author
+The Meru Number Converter was implemented and completed through collaboration between Tonny and Moses.
